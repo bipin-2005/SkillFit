@@ -14,11 +14,17 @@ app.get("/",(req,res)=>{
 
 //authRouter
 const authRoutes = require("./routes/auth.routes");
-
+app.use("/api/auth",authRoutes);
 //admiRouter
-
 const adminRoutes = require("./routes/admin.routes");
 app.use("/api/admin", adminRoutes);
+//recuiter router
+const recuriterRoutes = require("./routes/recuriter.routes");
+app.use("/api/recruiter", recuriterRoutes);
+app.use("/api/jobs", require("./routes/job.routes"));
 
-app.use("/api/auth",authRoutes);
+
+//candidate router
+const candidateRoutes = require("./routes/candidate.route");
+app.use("/api/candidate",candidateRoutes);
 module.exports = app;
